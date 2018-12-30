@@ -11,6 +11,7 @@ const robots = require('gulp-robots');
 const browserify = require('gulp-browserify');
 const babel = require('gulp-babel');
 const minify = require('gulp-minify');
+const htmlmin = require('gulp-htmlmin');
 
 const postCSSPluings = [
     cssnano({
@@ -68,6 +69,7 @@ gulp.task('sitemap', () => {
         .pipe(sitemap({
             siteUrl: 'https://dotw-app.firebaseapp.com/'
         }))
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('./public'))
 })
 
@@ -76,7 +78,7 @@ gulp.task('cache', () => {
         .pipe(cachebust({
             type: 'timestamp'
         }))
-        .pipe(minify())
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('./public'))
 })
 
