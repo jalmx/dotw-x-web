@@ -3,10 +3,8 @@ const mean = (data) => {
 }
 
 const meanDeviation = (data) => {
-    const mean = (data.reduce((prev, value) => prev + value) / data.length).toFixed(2);
-
-    const add = data.reduce((prev, value) => Math.pow(value - mean, 2) + prev);
-    return (Math.sqrt(add / data.length)).toFixed(2);
+    const v = variance(data)
+    return (Math.sqrt(v).toFixed(2));
 }
 
 const median = (data) => {
@@ -15,7 +13,7 @@ const median = (data) => {
     const half = data.length / 2;
 
     if (data.length % 2 === 0) {
-        value = `${data[half - 1]}, ${data[half]} `
+        value = (data[half - 1] + data[half]) / 2;
     } else {
         value = data[Math.floor(half)]
     }
@@ -23,13 +21,11 @@ const median = (data) => {
 }
 
 const distributionMean = (data) => {
-    const mean = (data.reduce((prev, value) => prev + value) / data.length);
-
-    const add = (data.reduce((prev, value) => Math.pow(value - mean, 2) + prev));
-    const desviation = (Math.sqrt(add / data.length));
+    const m = mean(data);
+    const mD = meanDeviation(data)
     return {
-        min: (mean - desviation).toFixed(2),
-        max: (mean + desviation).toFixed(2)
+        min: (m - mD).toFixed(2),
+        max: (parseFloat(m) + parseFloat(mD)).toFixed(2)
     }
 }
 
@@ -56,20 +52,17 @@ const mode = (datas) => {
 }
 
 const variance = (data) => {
-    const mean = (Math.round(data.reduce((prev, value) => prev + value) / data.length)).toFixed(2);
+    const m = mean(data);
 
-    const add = (data.reduce((prev, value) => Math.pow(value - mean, 2) + prev)).toFixed(2);
+    const add = data
+        .map((value) => Math.pow(value - m, 2))
+        .reduce((prev, value) => prev + value)
+
     return (add / data.length).toFixed(2);
 }
 
-const covariance = (data) => {
-    const mean = (data.reduce((prev, value) => prev + value) / data.length).toFixed(2);
+const cVariation = (data) => (meanDeviation(data) / mean(data)).toFixed(2);
 
-    const add = data.reduce((prev, value) => Math.pow(value - mean, 2) + prev);
-    const meanDeviation = (Math.sqrt(add / data.length)).toFixed(2);
-
-    return (meanDeviation / mean).toFixed(2);
-}
 
 const range = (data) => {
     if (data.length === 1) {
@@ -89,7 +82,7 @@ nData = (data) => data.length;
 module.exports = {
     distributionMean,
     variance,
-    covariance,
+    cVariation,
     range,
     mode,
     mean,

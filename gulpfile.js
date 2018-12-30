@@ -25,7 +25,7 @@ const postCSSPluings = [
 ];
 
 gulp.task('js', () => {
-    gulp.src('./src/js/**.js')
+    gulp.src('./src/js/main.js')
         .pipe(
             babel(
                 { presets: ['@babel/env'] }

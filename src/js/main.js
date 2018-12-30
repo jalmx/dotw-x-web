@@ -3,7 +3,6 @@ const cardContainer = document.getElementById('container-cards');
 const input = document.getElementById('input-data');
 const btn = document.getElementById('btn-calculate');
 const btnErase = document.getElementById('btn-erase');
-const btnMenu = document.getElementById('btn-menu');
 
 input.addEventListener('keyup', e => {
     evaluate(input.value);
@@ -82,7 +81,7 @@ const buildSection = data => {
                 value: statitic.mean(data)
             },
             {
-                title: 'Medina',
+                title: 'Mediana',
                 value: statitic.median(data)
             },
             {
@@ -104,8 +103,8 @@ const buildSection = data => {
                 value: statitic.variance(data)
             },
             {
-                title: 'Covarianza',
-                value: statitic.covariance(data)
+                title: 'Coeficiente de Variación (CV)',
+                value: statitic.cVariation(data)
             },
             {
                 title: 'Rango',

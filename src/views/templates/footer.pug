@@ -1,9 +1,9 @@
 footer.footer
-  header.footer__header
+  header.footer__header 
     .sitemap
       ul.sitemap__list
-        li.sitemap__item: a(href="https://xizuth.com", target="_blank").sitemap__link Xizuth
-        li.sitemap__item: a(href="https://medium.com/@xizuth", target="_blank").sitemap__link Blog
+        li.sitemap__item: a(href="https://xizuth.com", target="_blank",rel="noopener").sitemap__link Xizuth
+        li.sitemap__item: a(href="https://medium.com/@xizuth", target="_blank",rel="noopener").sitemap__link Blog
       p.sitemap__contact
         span Contacto: 
         a(href="mailto:xizuth@gmail.com").site__email xizuth@gmail.com
@@ -11,22 +11,22 @@ footer.footer
       a(href="https://xizuth.com/"): img(src="assets/img/logo_X.svg", alt="logo xizuth blanco white").logo__img
     .social-media
       ul.social-media__list
-        li.social-media__item: a(href="https://www.youtube.com/channel/UCrsLIYPabgAyB4yoaKuGCPA", target="_blank").icon-yt
-        li.social-media__item: a(href="https://play.google.com/store/apps/dev?id=7182139636058696036&hl=en", target="_blank").icon-play
-        li.social-media__item: a(href="https://www.facebook.com/xizuthTech/", target="_blank").icon-fb
-        li.social-media__item: a(href=" https://twitter.com/xizuth_tech", target="_blank").icon-tw
-        li.social-media__item: a(href=" https://medium.com/@xizuth", target="_blank").icon-medium
-        li.social-media__item: a(href=" https://medium.com/@xizuth", target="_blank").icon-dribble
+        li.social-media__item: a(href="https://www.youtube.com/channel/UCrsLIYPabgAyB4yoaKuGCPA", target="_blank",rel="noopener").icon-yt
+        li.social-media__item: a(href="https://play.google.com/store/apps/dev?id=7182139636058696036&hl=en", target="_blank",rel="noopener").icon-play
+        li.social-media__item: a(href="https://www.facebook.com/xizuthTech/", target="_blank",rel="noopener").icon-fb
+        li.social-media__item: a(href=" https://twitter.com/xizuth_tech", target="_blank",rel="noopener").icon-tw
+        li.social-media__item: a(href=" https://medium.com/@xizuth", target="_blank",rel="noopener").icon-medium
+        li.social-media__item: a(href=" https://medium.com/@xizuth", target="_blank",rel="noopener").icon-dribble
   .footer__information
     ul.information__list
-      li.information__item: a(href="sitemap.xml", target="_blank").information__link Sitemap
-      li.information__item: a(href="https://xizuth.com/terms_and_conditions.html", target="_blank").information__link Terminos y Condiciones
-      li.information__item: a(href="https://xizuth.com/privacy_policy.html", target="_blank").information__link Política de privacidad
+      li.information__item: a(href="sitemap.xml", target="_blank",rel="noopener").information__link Sitemap
+      li.information__item: a(href="https://xizuth.com/terms_and_conditions.html", target="_blank",rel="noopener").information__link Terminos y Condiciones
+      li.information__item: a(href="https://xizuth.com/privacy_policy.html", target="_blank",rel="noopener").information__link Política de privacidad
   footer.footer__mark
     include ./_blocks/schema
     p
-      a(href="https://xizuth.com/") Powered by Xizuth Inc 
-      a(href="https://www.alejandro-leyva.com/")#mark &copy Alejandro Leyva 2018 - 
+      a(href="https://xizuth.com/",rel="noopener") Powered by Xizuth Inc 
+      a(href="https://www.alejandro-leyva.com/",rel="noopener")#mark &copy Alejandro Leyva 2018 - 
       span    - v1.0.0
     script(type="text/javascript").
       const date = document.getElementById('mark');
